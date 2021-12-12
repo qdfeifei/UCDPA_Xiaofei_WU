@@ -285,9 +285,13 @@ selected_country_year(country=country_userinput,year=year_userinput)
 ##○ 5 insights from the visualisation (20)
 #from the plotted graphs:
 #1. China, India and United States are always the top3 in both 1960 and 2017.
-#2. 2 new countries are entered into top 5 in 2017: Indonesia and Pakistan,
-#3. 2 countries are fall off from top 5 in 2017: Russian Federation and Japan.
-#4. Top3 countries are not changed in 1960 and 2017, but their growth are different:
+#2. 2 new countries are entered into top 5 in 2017: Indonesia and Pakistan and 2 countries are fall off from top 5 in
+# 2017: Russian Federation and Japan.
+#3. Top3 countries are not changed in 1960 and 2017, but their growth are different:
 #India has greated population growth among these 3 countries, China growth is 2nd, and Unites States growth is 3rd.
-#5. Based on the population dataframe information, for prediction of 2022 population, China and India population are
+#4. Based on the population dataframe information, for prediction of 2022 population, China and India population are
 # almost the same.
+#5. From looping code line 149-173 output: it is predicted that 'in year 2023, India population will surpass China
+# population.
+#6.User can freely look for population info for a selected country for a selected year. User input interaction is
+# designed in coding. So this project leaves more space for users to have their own insights. code line 262-282
