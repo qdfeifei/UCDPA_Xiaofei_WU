@@ -70,7 +70,7 @@ print("China 2015 Population:")
 print(df2_China_2015Population)
 
 ## Looping, iterrows (10)
-#Looping is in later plot stage, refer to lines 170-194
+#Looping is in later plot stage, refer to lines 149-173
 
 ## Merge DataFrames (10)
 # Merge above 2 dataframes into 1 : mergedRes
@@ -84,27 +84,6 @@ print("China 2015 Passenger and population:")
 print(China_2015_Passenger_Population)
 
 ## 4.Python
-## Define a custom function to create reusable code (10)
-
-## Function definition: to select a country and year for showing population info from dataframe2
-def selected_country_year(country,year):
-    df2_country = data2.loc[data2["Country Name"] == country, ["Country Name", "Year", "Population"]]
-    df2_Country_YearPopulation = df2_country.loc[df2_country["Year"] == year]
-    print(f'Population for country {country} in year {year}:')
-    print(df2_Country_YearPopulation)
-    return
-
-#get user input for a country
-country_userinput = input("Please enter a country name with first letter in CAPITAL eg. India:\n")
-print(f'You entered country: {country_userinput}')
-#get user input for a year
-year_userinput = input("Please enter a year between 1960 and 2017:\n")
-year_userinput= int (year_userinput) # convert the str into int
-print(f'You entered year: {year_userinput}')
-
-# call the function to show the population of user input country and year
-selected_country_year(country=country_userinput,year=year_userinput)
-
 ## NumPy (10)
 # convert the whole dataframe 1 into numpy array
 my_array = df1.to_numpy()
@@ -282,6 +261,25 @@ ax2.plot(labels, average_yearly_growth, 'r*')
 ax2.set_ylabel('Average Yearly Growth', color='red', fontsize=20)
 plt.show()
 
+##4. Python-Define a custom function to create reusable code (10)
+## Function definition: to select a country and year for showing population info from dataframe2
+def selected_country_year(country,year):
+    df2_country = data2.loc[data2["Country Name"] == country, ["Country Name", "Year", "Population"]]
+    df2_Country_YearPopulation = df2_country.loc[df2_country["Year"] == year]
+    print(f'Population for country {country} in year {year}:')
+    print(df2_Country_YearPopulation)
+    return
+
+#get user input for a country
+country_userinput = input("Please enter a country name with first letter in CAPITAL eg. India:\n")
+print(f'You entered country: {country_userinput}')
+#get user input for a year
+year_userinput = input("Please enter a year between 1960 and 2017:\n")
+year_userinput= int (year_userinput) # convert the str into int
+print(f'You entered year: {year_userinput}')
+
+# call the function to show the population of user input country and year
+selected_country_year(country=country_userinput,year=year_userinput)
 
 ##6. Generate valuable insights
 ##○ 5 insights from the visualisation (20)
