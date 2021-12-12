@@ -70,7 +70,7 @@ print("China 2015 Population:")
 print(df2_China_2015Population)
 
 ## Looping, iterrows (10)
-#Looping is in later plot stage, refer to lines 186-199
+#Looping is in later plot stage, refer to lines 170-194
 
 ## Merge DataFrames (10)
 # Merge above 2 dataframes into 1 : mergedRes
@@ -95,7 +95,7 @@ def selected_country_year(country,year):
     return
 
 #get user input for a country
-country_userinput = input("Please enter a country first letter in CAPITAL eg. China:\n")
+country_userinput = input("Please enter a country name with first letter in CAPITAL eg. India:\n")
 print(f'You entered country: {country_userinput}')
 #get user input for a year
 year_userinput = input("Please enter a year between 1960 and 2017:\n")
@@ -106,11 +106,6 @@ print(f'You entered year: {year_userinput}')
 selected_country_year(country=country_userinput,year=year_userinput)
 
 ## NumPy (10)
-# define a Numpy array from dataframe1(passengers) for year 2017
-X = df1[['2017']].values
-# find the maximum value in this array
-max_value = np.max(X)
-print('Maximum value of the array is',max_value)
 # convert the whole dataframe 1 into numpy array
 my_array = df1.to_numpy()
 print('showing array type:',my_array.dtype) # this array type is object
@@ -129,15 +124,15 @@ sorted_2017 = year_2017.sort_values(by='Population',ascending=False)
 #print first 5 rows to show top 5 countries by population
 print('Top 5 countries by population in 1960:\n',sorted_1960.head())
 print('Top 5 countries by population in 2017:\n',sorted_2017.head())
-#after print head of sorted_1960 and sorted_2017, it is noticed that top 3 countries are the same
+#after printing head of sorted_1960 and sorted_2017, it is noticed that top 3 countries are the same
 #to figure the growth for these 3 countries
 top3_2017= sorted_2017.iloc[:3]
 top3_1960= sorted_1960.iloc[:3]
 top3_2017= sorted_2017.head(3)
 top3_1960= sorted_1960.head(3)
 
-Pop2017 = top3_2017[['Population']].values
-Pop1960 = top3_1960[['Population']].values
+Pop2017 = top3_2017[['Population']].values # 2017 Population
+Pop1960 = top3_1960[['Population']].values # 1960 Population
 growth=(Pop2017-Pop1960)/Pop1960
 print("top 3 countries population growth:",growth)
 
@@ -215,7 +210,7 @@ print("Type:",type(d))
 
 ##Seaborn plot
 sns.set_theme(style="whitegrid")
-#Plot1: top 5 countries by Population in 1960
+#Figure 1: top 5 countries by Population in 1960
 g = sns.catplot(
     data=sorted_1960.head(), kind="bar",
     x="Country Name", y="Population",
@@ -225,7 +220,7 @@ g.despine(left=True)
 g.set_axis_labels("", "Population in 1960")
 
 
-#Plot2: top 5 countries by Population in 2017
+#Figure 2: top 5 countries by Population in 2017
 g = sns.catplot(
     data=sorted_2017.head(), kind="bar",
     x="Country Name", y="Population",
@@ -235,7 +230,7 @@ g.despine(left=True)
 g.set_axis_labels("", "Population in 2017")
 
 ##MatPlotlib
-#Plot 3: Plot 1960 and 2017 in same graph with MatPlotlib
+#Figure 3: Plot 1960 and 2017 in same graph with MatPlotlib
 x1 = sorted_1960['Country Name'].head()
 y1 = sorted_1960['Population'].head()
 x2 = sorted_2017['Country Name'].head()
@@ -254,7 +249,7 @@ plt.xlabel('Country Name')
 plt.ylabel('Population')
 plt.title("World Population top 5: 1960 vs 2017")
 
-# 4th plot:top3 population in 1960,2017,predicted 2022, with 2nd Y-Axis showing top3 countries' average yearly growth
+# figure 4 :top3 population in 1960,2017,predicted 2022, with 2nd Y-Axis showing top3 countries' average yearly growth
 labels=top3_1960vs2017['Country Name']
 y1960= top3_1960vs2017['Population1960']
 y2017= top3_1960vs2017['Population2017']
@@ -294,7 +289,7 @@ plt.show()
 #1. China, India and United States are always the top3 in both 1960 and 2017.
 #2. 2 new countries are entered into top 5 in 2017: Indonesia and Pakistan,
 #3. 2 countries are fall off from top 5 in 2017: Russian Federation and Japan.
-#4. Population top3 countries are not changed in 1960 and 2017, but their growth are different:
+#4. Top3 countries are not changed in 1960 and 2017, but their growth are different:
 #India has greated population growth among these 3 countries, China growth is 2nd, and Unites States growth is 3rd.
 #5. Based on the population dataframe information, for prediction of 2022 population, China and India population are
 # almost the same.
